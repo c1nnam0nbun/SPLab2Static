@@ -18,4 +18,5 @@ database.o: database.cpp
 database.a: employee.o database.o
 	ar cr database.a employee.o database.o
 
-#clean: rm -rf *.o lab2
+clean: 
+	rm -rf *.o lab2
