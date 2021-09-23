@@ -1,0 +1,5 @@
+﻿*.o
+*.a
+*.so
+*.pro
+*.pro.user
