@@ -1,7 +1,7 @@
 ﻿CC = g++
 CFLAGS = -c -Wall
 
-all: lab2
+all: clean lab2
 
 lab2: main.o database.a
 	$(CC) -lm -o lab2 main.o -L -l: database.a
@@ -19,4 +19,4 @@ database.a: employee.o database.o
 	ar cr database.a employee.o database.o
 
 clean: 
-	rm -rf *.o lab2
+	rm -rf *.o *.a lab2
