@@ -1,23 +1,30 @@
 #include "employee.h"
 #include <iostream>
 
-Employee::Employee(const std::string &firstName, const std::string &lastName)
-    :m_FirstName(firstName), m_LastName(lastName), m_ID(-1), m_IsHired(false)
-{}
-
-void Employee::setSalary(int salary)
+Employee::Employee(const std::string &firstName, const std::string &lastName, Position position)
+    : m_FirstName(firstName), m_LastName(lastName)
 {
-    m_Salary = salary;
+    m_Position = position;
 }
 
-void Employee::setID(int ID)
+void Employee::setCode(unsigned int code)
 {
-    m_ID = ID;
+    m_Code = code;
 }
 
-int Employee::getID()
+Position Employee::getPosition()
 {
-    return m_ID;
+    return m_Position;
+}
+
+void Employee::setPosition(Position position)
+{
+    m_Position = position;
+}
+
+unsigned int Employee::getCode()
+{
+    return m_Code;
 }
 
 bool Employee::isHired()
@@ -55,25 +62,7 @@ std::string& Employee::getLastName()
     return m_LastName;
 }
 
-void Employee::promote(int salaryIncrease)
-{
-    m_Salary += salaryIncrease;
-}
-
-void Employee::demote(int salaryDecrease)
-{
-    m_Salary += salaryDecrease;
-}
-
 void Employee::display()
 {
-    std::cout << m_ID << ". " << m_FirstName << " " << m_LastName << ", ";
-    if (m_IsHired)
-    {
-        std::cout << "currently employed" << ", $" << m_Salary << std::endl;
-    }
-    else
-    {
-        std::cout << "former employee" << std::endl;
-    }
+    std::cout << m_Code << " " << m_FirstName << " " << m_LastName << " " << getPositionString(m_Position) << " " << (m_IsHired ? "currently employed" : "former employee") << std::endl;
 }
